@@ -1,5 +1,7 @@
 FROM mhart/alpine-node:4
 
+RUN apk add --no-cache python
+
 # Home directory for Node-RED application source code.
 RUN mkdir -p /usr/src/node-red
 
