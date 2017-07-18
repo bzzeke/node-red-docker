@@ -21,7 +21,7 @@ USER node-red
 COPY package.json /usr/src/node-red/
 RUN npm install
 
-apk del curl make gcc g++ python
+RUN apk del curl make gcc g++ python
 
 # User configuration directory volume
 VOLUME ["/data"]
