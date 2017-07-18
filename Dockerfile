@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:4
 
-RUN apk add --no-cache python
+RUN apk add --no-cache curl make gcc g++ python
 
 # Home directory for Node-RED application source code.
 RUN mkdir -p /usr/src/node-red
@@ -20,6 +20,8 @@ USER node-red
 # package.json contains Node-RED NPM module and node dependencies
 COPY package.json /usr/src/node-red/
 RUN npm install
+
+apk del curl make gcc g++ python
 
 # User configuration directory volume
 VOLUME ["/data"]
