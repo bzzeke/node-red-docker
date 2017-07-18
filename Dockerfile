@@ -21,7 +21,6 @@ USER node-red
 COPY package.json /usr/src/node-red/
 RUN npm install
 
-RUN apk del curl make gcc g++ python
 
 # User configuration directory volume
 VOLUME ["/data"]
@@ -31,3 +30,6 @@ EXPOSE 1880
 ENV FLOWS=flows.json
 
 CMD ["npm", "start", "--", "--userDir", "/data"]
+
+USER root
+RUN apk del curl make gcc g++ python
